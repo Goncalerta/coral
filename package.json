@@ -16,6 +16,7 @@
         "format": "prettier --write .",
         "sandbox": "cross-env DEBUG=\"*\" npx clava-js --config-classic sandbox.xml out/src/sandbox.js -- clang in/sandbox",
         "sandbox:watch": "cross-env DEBUG=\"*\" npx clava-js --config-classic sandbox.xml out/src/sandbox.js -w out/src -w in/sandbox -- clang in/sandbox",
+        "benchmarks": "cross-env DEBUG=\"*\" npx clava-js --config-classic benchmarks.xml out/src/benchmarks.js",
         "test": "cross-env DEBUG=\"*\" npx clava-js --config-classic test.xml out/src/test.js"
     },
     "exports": {
@@ -42,7 +43,8 @@
     "homepage": "https://github.com/specs-feup/coral#readme",
     "dependencies": {
         "clava-js": "0.0.1",
-        "clava-flow": "1.0.0"
+        "clava-flow": "1.0.0",
+        "clava-benchmarks-chstone": "0.0.1"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^6.7.4",

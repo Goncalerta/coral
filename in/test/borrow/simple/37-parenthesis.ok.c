@@ -4,7 +4,7 @@ int main() {
 
     ptr1 = &a;
     int b = *ptr1;
-    *ptr1 = a + *(&a);
+    *ptr1 = b + *(&b);
 
     ptr2 = &a;
     int c = *ptr2;

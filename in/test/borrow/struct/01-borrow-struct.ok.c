@@ -4,8 +4,10 @@ typedef struct {
 } T;
 
 int main() {
-    T a = {1, 2};
-    
+    T a;
+    a.a = 1;
+    a.b = 2;
+
     const T *ref = &a;
     int n = ref->a;
     int m = (*ref).b;

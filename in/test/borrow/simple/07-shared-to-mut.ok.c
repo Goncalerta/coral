@@ -1,5 +1,5 @@
 int main() {
-    const float a = 5.0;
+    float a = 5.0;
     const float *ptr1, *ptr2;
 
     ptr1 = &a;

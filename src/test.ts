@@ -2,14 +2,10 @@ import Clava from "clava-js/api/clava/Clava.js";
 import Io from "lara-js/api/lara/Io.js";
 import Query from "lara-js/api/weaver/Query.js";
 import ClavaJoinPoints from "clava-js/api/clava/ClavaJoinPoints.js";
-import { Pragma } from "clava-js/api/Joinpoints.js";
+import { Joinpoint, Pragma } from "clava-js/api/Joinpoints.js";
 
 import CoralPipeline from "coral/CoralPipeline";
 import CoralError from "coral/error/CoralError";
-
-interface TypeOf<T> {
-    new (...args: never[]): T;
-}
 
 class CoralTester {
     #baseFolder: string;
@@ -154,6 +150,7 @@ class CoralTester {
             actualException: undefined,
         };
         let pass = isOkExpected;
+        let doublePush = false;
 
         try {
             Clava.rebuild();
@@ -168,7 +165,10 @@ class CoralTester {
                 }
             }
 
+            Clava.pushAst();
+            doublePush = true;
             this.#pipeline.apply();
+            
             if (this.#writeTo !== undefined) {
                 let writeTo = this.#writeTo + "/" + path;
                 if (singleFile) {
@@ -198,6 +198,9 @@ class CoralTester {
             }
         } finally {
             Clava.popAst();
+            if (doublePush) {
+                Clava.popAst();
+            }
         }
 
         if (pass) {

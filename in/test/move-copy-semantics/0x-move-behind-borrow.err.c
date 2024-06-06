@@ -1,4 +1,4 @@
-#pragma coral_test expect MoveBehindBorrowError
+#pragma coral_test expect MoveBehindReferenceError
 
 #pragma coral move
 struct C {
@@ -7,6 +7,7 @@ struct C {
 
 int main() {
     struct C a;
+    a.a = 0;
     struct C *restrict ref1 = &a;
     *ref1;
 

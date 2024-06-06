@@ -6,7 +6,7 @@ struct MyStruct {
 
 int main() {
     struct MyStruct s1;
-    struct MyStruct *ref1;
+    const struct MyStruct *ref1;
     s1.i = 5;
     ref1 = &s1;
     s1.i = 6;

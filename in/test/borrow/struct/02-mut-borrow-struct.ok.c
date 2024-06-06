@@ -5,8 +5,11 @@ typedef struct {
 } T;
 
 int main() {
-    T a = {1, 2};
-    
+    T a;
+    a.a = 1;
+    a.b = 2;
+    a.result = 0;
+
     T *restrict ref = &a;
     ref->result = ref->a + ref->b;
 

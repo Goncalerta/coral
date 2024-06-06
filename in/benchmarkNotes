@@ -1,0 +1,20 @@
+## Benchmark sources
+
+Obtained here: https://github.com/specs-feup/clava-benchmarks
+    CHStone
+    HiFlipVX
+    LSU
+    MachSuite
+    NAS
+    Parboil
+    Polybench
+    Rosetta
+
+## Manual changes
+
+1. Removed files that are not .c .h .cpp .hpp (cpp files are kept in hopes that maybe some of them actually have valid C code, the worst that can happen is failing to compile and skipping)
+2. Lifetimes pragmas were added to structs with pointers
+3. In bzip2: 
+   1. function pointers in structs became void pointers (functions that used them were commented, as they are not supported are were related to alloc and free)
+   2. bzFile uses unsupported type FILE so was removed (with all functions that used it)
+   3. Arrays in structs were converted to pointers, since arrays are unsupported and this way only functions that use those fields specifically get affected
