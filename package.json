@@ -43,8 +43,7 @@
     "homepage": "https://github.com/specs-feup/coral#readme",
     "dependencies": {
         "clava-js": "0.0.1",
-        "clava-flow": "1.0.0",
-        "clava-benchmarks-chstone": "0.0.1"
+        "clava-flow": "1.0.0"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^6.7.4",

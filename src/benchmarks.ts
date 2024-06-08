@@ -469,7 +469,6 @@ class BenchmarkFilterer {
                 ) &&
                 $varref.type instanceof FunctionType
             ) {
-                console.log($varref.code, $varref.location);
                 return false;
             }
         }
